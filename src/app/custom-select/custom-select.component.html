@@ -1,0 +1,26 @@
+<div class="multiselect--container">
+  <div class="custom-select">
+    <div class="left-box">
+      <h3>Left Box</h3>
+      <div class="item" *ngFor="let outer of keys; let i = index">
+        <div class="optgroup" [innerHTML]="outer"></div>
+        <div class="option" *ngFor="let item of cntrl[i][outer].columns" [innerHTML]="'- ' + item.name"
+             [class.selected]="selectedItems.includes(item)" (click)="toggleSelection(item, 'left')"></div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <div class="arrow" (click)="moveRight()">&gt;&gt;</div>
+      <div class="arrow" (click)="moveLeft()">&lt;&lt;</div>
+    </div>
+
+    <div class="right-box">
+      <h3>Right Box</h3>
+      <div class="item" *ngFor="let outer of keys; let i = index">
+        <div class="optgroup" [innerHTML]="outer"></div>
+        <!-- <div class="option" *ngFor="let item of cntrl[i][outer].default_columns" [innerHTML]="item.name"
+             [class.selected]="selectedcolumnRight.includes(item)" (click)="toggleSelection(item, 'right')"></div>
+      </div>
+    </div>
+  </div>
+</div>
